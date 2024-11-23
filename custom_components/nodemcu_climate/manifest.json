@@ -6,5 +6,5 @@
   "requirements": [],
   "codeowners": ["@christianronningen"],
   "config_flow": true,
-  "zeroconf": ["_nodemcuclimate._tcp.local."]
+  "zeroconf": ["_nodemcu-climate._tcp.local."]
 }

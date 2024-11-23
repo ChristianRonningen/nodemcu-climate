@@ -167,4 +167,4 @@ class NodeMCUClimate(ClimateEntity):
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Set up climate entities from a config entry."""
     data = hass.data[DOMAIN][config_entry.entry_id]
-    async_add_entities([NodeMCUClimate(data["host"], data["name"])])
+    async_add_entities([NodeMCUClimate(data["name"], data["host"])])
