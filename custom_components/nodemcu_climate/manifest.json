@@ -2,9 +2,10 @@
   "domain": "nodemcu_climate",
   "name": "NodeMCU Climate",
   "version": "1.0",
-  "documentation": "https://example.com",
+  "documentation": "https://github.com/ChristianRonningen/nodemcu-climate",
   "requirements": [],
   "codeowners": ["@christianronningen"],
   "config_flow": true,
-  "zeroconf": ["_nodemcu-climate._tcp.local."]
+  "zeroconf": ["_nodemcu-climate._tcp.local."],
+  "issue_tracker": "https://github.com/ChristianRonningen/nodemcu-climate/issues"
 }
