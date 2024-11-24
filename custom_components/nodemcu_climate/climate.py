@@ -31,6 +31,7 @@ class NodeMCUClimate(ClimateEntity):
         self._available = True
         self._current_temperature = None  # Cached temperature
         self._current_humidity = None  # Cached humidity
+        self._target_temperature_step = 1
 
     @property
     def name(self):
@@ -50,10 +51,10 @@ class NodeMCUClimate(ClimateEntity):
     def hvac_mode(self):
         """Return the current HVAC mode."""
         return self._hvac_mode
-        
+
     @property
-    def target_temp_step(self):
-        return 1
+    def target_temperature_step(self):
+        return self._target_temperature_step
 
     @property
     def supported_features(self):
@@ -88,7 +89,7 @@ class NodeMCUClimate(ClimateEntity):
     @property
     def current_temperature(self):
         return self._current_temperature
-        
+
     @property
     def current_humidity(self):
         """Return the cached humidity."""
@@ -143,7 +144,7 @@ class NodeMCUClimate(ClimateEntity):
         except requests.RequestException as e:
             # Log the error, but don't affect availability
             _LOGGER.error(f"Error sending {command} with value {value} to {self._host}: {e}")
-            
+
     def update(self):
         """Fetch the latest temperature from the NodeMCU."""
         try:
@@ -164,7 +165,7 @@ class NodeMCUClimate(ClimateEntity):
         return self._available
 
 
-async def async_setup_entry(hass, config_entry, async_add_entities):
+async def async_setup_entry(hass, config_entry: ConfigEntry, async_add_entities):
     """Set up climate entities from a config entry."""
     data = hass.data[DOMAIN][config_entry.entry_id]
     async_add_entities([NodeMCUClimate(data["name"], data["host"])])

@@ -1,7 +1,7 @@
 {
   "domain": "nodemcu_climate",
   "name": "NodeMCU Climate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "documentation": "https://github.com/ChristianRonningen/nodemcu-climate",
   "requirements": [],
   "codeowners": ["@christianronningen"],
